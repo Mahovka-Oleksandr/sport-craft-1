@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформлення замовлення</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="body-order">
+
+    <div class="main-block">
+        <div class="form-box">
+            <a href="index.html" class="close-x" id="nazadKnopka">X</a>
+
+            <h2 class="form-title">Бронювання Тренера</h2>
+            <p class="form-text">Залиште свої контакти і ми зв'яжемося з вами для підтвердження</p>
+
+            <form id="formaGlavnaya">
+                <div class="input-group">
+                    <label>ІМ'Я</label>
+                    <input type="text" placeholder="Введіть ваше ім'я">
+                </div>
+
+                <div class="input-group">
+                    <label>ПРІЗВИЩЕ</label>
+                    <input type="text" placeholder="Введіть ваше прізвище">
+                </div>
+
+                <div class="input-group">
+                    <label>НОМЕР ТЕЛЕФОНУ</label>
+                    <input type="tel" id="user-phone" placeholder="+380 _________">
+
+                    <span class="error-msg" id="nomer-oshibka" style="display: none;">Неправильий номер!</span>
+                </div>
+
+                <button type="submit" class="btn-submit">Підтвердити замовлення</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="order.js"></script>
+
+
+</body>
+
+</html>

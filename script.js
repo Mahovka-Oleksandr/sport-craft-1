@@ -2,30 +2,26 @@ document.addEventListener("DOMContentLoaded", function () {
     const bannerSection = document.querySelector(".main-banner");
     if (!bannerSection) return;
 
-    // Спортивні картинки високої якості
     const sportsImages = [
-        "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1000", // Футбол
-        "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1000", // Баскетбол
-        "https://images.unsplash.com/photo-1599586120429-48281b6f0ece?q=80&w=1000", // Теніс
-        "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1000"  // Бокс
+        "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1000", 
+        "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1000", 
+        "https://images.unsplash.com/photo-1599586120429-48281b6f0ece?q=80&w=1000", 
+        "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1000"  
     ];
 
-    // Функція завантаження свіжих світових новин спорту українською мовою
     async function loadFreshSports() {
         try {
-            // Використовуємо стабільне та швидке API новин (категорія: спорт, мова: українська)
             const response = await fetch("https://gnews.io/api/v4/top-headlines?category=sports&lang=uk&country=ua&max=4&apikey=86db8cd06da8b9cb96f7df10cb5fc7b1");
             const data = await response.json();
 
             if (data.articles && data.articles.length > 0) {
-                bannerSection.innerHTML = ""; // Очищаємо банер
+                bannerSection.innerHTML = ""; 
 
                 data.articles.forEach((news, index) => {
                     const slideDiv = document.createElement("div");
                     slideDiv.classList.add("slide");
                     if (index === 0) slideDiv.classList.add("active");
 
-                    // Якщо API не дало картинку, беремо з нашого крутого списку
                     const finalImg = news.image || sportsImages[index % sportsImages.length];
 
                     slideDiv.innerHTML = `
@@ -47,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Запасні робочі новини, якщо ліміт безкоштовного API вичерпано
     function useFallback() {
         const localNews = [
             { title: "Олександр Усик здолав технічним нокаутом в 11-му раунді нідерландця Ріко Верховена.", img: "https://i.pinimg.com/736x/bb/5b/63/bb5b63d2e0879379014c71ae054d9bbd.jpg" },
